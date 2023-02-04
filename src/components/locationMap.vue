@@ -1,3 +1,11 @@
+
+/*
+This is a test component to use vue2-leaflet package 
+inside vue without coding JavaScript
+but the package doesn't have some of needed options for the project 
+and wasn't useful
+*/
+
 <template>
   <div class="locationMap">
     <l-map
@@ -68,24 +76,11 @@ export default {
     };
   },
 
-  // mounted(){
-  //   this.geojson = geojson;
-  //   console.log(geojson.features)
-  // },
 
   methods: {
     toggleDetails(){
       this.details = !this.details;
     },
-
-    // getColor_by_temprature(temp){
-    //   return temp < 9 ? '#800026' :   // <----- return the value
-    //     temp < 50 ? '#BD0026' :
-    //     temp < 3 ? '#E31A1C' :
-    //     temp < 100 ? '#FC4E2A' :
-    //             '#FFEDA0';
-    // }
-    
   },
 
   computed: {
@@ -103,39 +98,9 @@ export default {
           fillColor: fillColor,
           fillOpacity: 1,
           // opacity:1
-        };
-      };
+        }
+      }
     },
-    // colorlayer(feature, layer) {
-    // layer.on('mouseover', function (e) {
-    //     layer.setStyle({
-    //         fillOpacity: 0.4
-    //     });
-    // });
-    // layer.on('mouseout', function (e) {
-    //     layer.setStyle({
-    //         fillOpacity: 0
-    //     });
-    //   });
-    // }
-
-    //    if(this.temprature==50){
-    //      return {fillColor:"red"}
-    //    }
-    //   }, 
-      //  switch(this.temprature){
-      //    case '30' : 
-      //     fillColor: "red"
-      //     return fillColor;
-      //     break;
-
-      //   case '50' :
-      //     fillColor: "blue"
-      //     return fillColor;
-      //     break;
-
-      //  }
-     
   },
 
    async created() {
@@ -144,6 +109,7 @@ export default {
     const data = await response.json();
     this.geojson = data;
     this.loading = false;
+    console.log(this.geojson)
   }
 }
 
